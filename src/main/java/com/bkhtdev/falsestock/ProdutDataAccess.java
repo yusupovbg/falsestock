@@ -11,8 +11,7 @@ class Product{
      private double price;
      private int quantity;
 
-     public Product(int id, String name, String description, double price, int quantity) {
-         this.id = id;
+     public Product(String name, String description, double price, int quantity) {
          this.name = name;
          this.description = description;
          this.price = price;
@@ -56,6 +55,8 @@ public class ProdutDataAccess {
      private Map<Integer, Product> productMap = new HashMap<Integer, Product>();
 
      public void addProduct(Product product){
+         int id = products.size() + 1;
+         product.setId(id);
          products.add(product);
          productMap.put(product.getId(), product);
      }
